@@ -20,6 +20,7 @@ angular.module('emission.intro', ['emission.splash.startprefs',
 
 .controller('IntroCtrl', function($scope, $state, $ionicSlideBoxDelegate,
     $ionicPopup, $ionicHistory, ionicToast, $timeout, CommHelper, StartPrefs) {
+  $scope.studyEmail = "ba_study@lbl.gov";
   $scope.getIntroBox = function() {
     return $ionicSlideBoxDelegate.$getByHandle('intro-box');
   };
@@ -43,6 +44,10 @@ angular.module('emission.intro', ['emission.splash.startprefs',
         $scope.alertError('getting settings', error);
     });
   };
+
+  /*$scope.proceed = function() {
+    $scope.login();
+  }*/
 
   $scope.disagree = function() {
     $state.go('root.main.refuse');
@@ -80,11 +85,14 @@ angular.module('emission.intro', ['emission.splash.startprefs',
   }
 
   $scope.login = function() {
+    console.log("Logging in...");
+    StartPrefs.markConsented();
     window.cordova.plugins.BEMJWTAuth.signIn().then(function(userEmail) {
       // ionicToast.show(message, position, stick, time);
       // $scope.next();
       ionicToast.show(userEmail, 'middle', false, 2500);
       CommHelper.registerUser(function(successResult) {
+        console.log("Login success")
         $scope.finish();
       }, function(errorResult) {
         $scope.alertError('User registration error', errorResult);
@@ -120,4 +128,3 @@ angular.module('emission.intro', ['emission.splash.startprefs',
     StartPrefs.loadPreferredScreen();
   }
 });
-

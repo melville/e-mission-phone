@@ -63,12 +63,13 @@ angular.module('emission.splash.startprefs', ['emission.plugin.logger',
       storage.set(INTRO_DONE_KEY, true);
       // Need to initialize this first because if we try to
       // create it inlike with {key: value}, the key becomes the
-      // word "INTRO_DONE_KEY" and the stored object is 
+      // word "INTRO_DONE_KEY" and the stored object is
       // {"INTRO_DONE_KEY":"2018-01-31T06:26:02+00:00"}
       var to_store = {};
       to_store[INTRO_DONE_KEY] = moment().format();
       $window.cordova.plugins.BEMUserCache.putLocalStorage(INTRO_DONE_KEY, to_store);
       $rootScope.$emit(startprefs.INTRO_DONE_EVENT, $rootScope.req_consent);
+      //$rootScope.$emit(startprefs.INTRO_DONE_EVENT);
     }
 
     // returns boolean
@@ -85,9 +86,9 @@ angular.module('emission.splash.startprefs', ['emission.plugin.logger',
     }
 
     startprefs.isConsented = function() {
-      logger.log("curr_consented = "+$rootScope.curr_consented+
+      /*logger.log("curr_consented = "+$rootScope.curr_consented+
             "isIntroDone = " + startprefs.isIntroDone());
-      if (startprefs.isIntroDone() && 
+      if (startprefs.isIntroDone() &&
             ($rootScope.curr_consented == null || $rootScope.curr_consented == "")) {
         alert("intro is done, but consent not found, re-consenting...");
       }
@@ -98,7 +99,8 @@ angular.module('emission.splash.startprefs', ['emission.plugin.logger',
       } else {
         console.log("Consented in local storage, no need to show consent");
         return true;
-      }
+      }*/
+      return true;
     }
 
     startprefs.readConsentState = function() {
@@ -145,8 +147,8 @@ angular.module('emission.splash.startprefs', ['emission.plugin.logger',
         // intro is done. Now, let's read and check the current version
         // of the startup config
         return $http.get("json/startupConfig.json")
-          .then(startprefs.readConsentState)
-          .then(startprefs.isConsented)
+          //.then(startprefs.readConsentState)
+          //.then(startprefs.isConsented)
           .then(function(result) {
             if (result) {
               return null;
@@ -188,7 +190,7 @@ angular.module('emission.splash.startprefs', ['emission.plugin.logger',
         var ls_stored_val = storage.get(key);
         $window.cordova.plugins.BEMUserCache.getLocalStorage(key, false).then(function(uc_stored_val) {
             logger.log("uc_stored_val = "+JSON.stringify(uc_stored_val)+" ls_stored_val = "+ls_stored_val);
-            if(angular.isDefined(uc_stored_val) && (uc_stored_val != null) 
+            if(angular.isDefined(uc_stored_val) && (uc_stored_val != null)
                 && (key in uc_stored_val) && angular.isDefined(uc_stored_val[key])) {
                 if (ls_stored_val == true) {
                     logger.log("local intro_done true, remote intro_done "+uc_stored_val[key]+", already synced");
@@ -203,7 +205,7 @@ angular.module('emission.splash.startprefs', ['emission.plugin.logger',
 
                     // Need to initialize this first because if we try to
                     // create it inlike with {key: value}, the key becomes the
-                    // word "key" and the stored object is 
+                    // word "key" and the stored object is
                     // {"key":"2018-01-31T06:26:02+00:00"}
                     var to_put = {};
                     to_put[key] = moment().format();
@@ -222,7 +224,7 @@ angular.module('emission.splash.startprefs', ['emission.plugin.logger',
 
     startprefs.checkStorageConsistency = function() {
         // console.log("checkStorageConsistency called");
-        startprefs.checkNativeConsent();
+        //startprefs.checkNativeConsent();
         startprefs.checkUsercacheStorage(INTRO_DONE_KEY);
     }
 

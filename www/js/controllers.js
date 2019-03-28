@@ -12,7 +12,7 @@ angular.module('emission.controllers', ['emission.splash.updatecheck',
 
 .controller('DashCtrl', function($scope) {})
 
-.controller('SplashCtrl', function($scope, $state, $interval, $rootScope, 
+.controller('SplashCtrl', function($scope, $state, $interval, $rootScope,
     UpdateCheck, StartPrefs, PushNotify,
     LocalNotify, ClientStats, PostTripAutoPrompt, SurveyLaunch)  {
   console.log('SplashCtrl invoked');

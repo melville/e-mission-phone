@@ -1,7 +1,7 @@
 {
-  "name": "edu.berkeley.eecs.emission",
-  "version": "2.5.0",
-  "displayName": "emission",
+  "name": "gov.lbl.CommuteVerifi",
+  "version": "3.0",
+  "displayName": "commuteverification",
   "scripts": {
     "setup-serve": "./bin/download_settings_controls.js",
     "serve": "phonegap --verbose serve"

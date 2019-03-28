@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget android-versionCode="35" id="edu.berkeley.eecs.emission" ios-CFBundleVersion="35" version="2.6.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>emission</name>
+<widget android-versionCode="35" id="gov.lbl.CommuteVerifi" ios-CFBundleVersion="3" version="3.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>commuteverification</name>
     <description>
-        A commute pattern tracker and carbon footprint estimator.
+        Studying Decision Processes with Environmental and Energy Use Impacts
     </description>
-    <author email="shankari@eecs.berkeley.edu" href="https://e-mission.eecs.berkeley.edu">
-        E-Mission Team
+    <author email="caspurlock@lbl.gov" href="https://eta.lbl.gov/people/c-anna-spurlock">
+        BA Study Commute Verification team
   </author>
     <content src="index.html" />
     <access origin="*" />

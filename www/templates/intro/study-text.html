@@ -5,15 +5,25 @@
 	</div>
 	<!-- <div class="intro-space"></div> -->
 	<div class="intro-text">
-	<center><img src="img/stop.png"/ style="width: 80%; height: auto;"></center>
+	<!--<center><img src="img/stop.png"/ style="width: 80%; height: auto;"></center>-->
 	<div class="intro-space"></div>
-	<center><b>If you are joining a study, please return to your study instructions and complete the second step before proceeding.</b></center>
+	<center><b>Thank you for participating in our research, <em-italic>Studying Decision Processes with Environmental and Energy Use Impacts.<em-italic></b></center>
 	<div class="intro-space"></div>
-	<center>If you aren't joining a study, please proceed!</center>
+	<p style="font-size: 15px;text-align: center;padding: 5px 10px 0px 10px;">
+		If you have any questions or concerns, please contact us:
+	</p>
+	<div id="call-cci" class="button icon icon-left ion-ios-telephone cci-contact-button">(510) 495-2072</div>
+	<button ng-click="emailCCI()" id="email-cci" class="icon icon-left ion-email cci-contact-button">{{' '+studyEmail+' '}}</button>
 	</div>
+	<div class="intro-space"></div>
+	<p style="font-size: 15px;text-align: center;padding: 5px 10px 0px 10px;">
+		To log-in to the app, please enter the passcode provided to you by us.
+	</p>
 </ion-content>
 <ion-footer-bar class="no-bgColor" id="intro-footer">
-  <button class="button button-block button-outline button-positive" ng-click="next()">
-  	NEXT STEP
-  </button>
+	<button class="button button-block button-balanced" ng-click="login()">Login</button>
+	</div>
+  <!--<button class="button button-block button-outline button-positive" ng-click="proceed()">
+  	Proceed
+  </button>-->
 </ion-footer-bar>

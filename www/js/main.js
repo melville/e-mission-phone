@@ -31,6 +31,15 @@ angular.module('emission.main', ['emission.main.recent',
     },
   })
 
+  .state('root.main.info', {
+    url: '/info',
+    views: {
+      'main-info': {
+        templateUrl: 'templates/info/info.html'
+      }
+    },
+  })
+
   .state('root.main.common', {
     url: '/common',
     abstract: true,
@@ -68,6 +77,7 @@ angular.module('emission.main', ['emission.main.recent',
       'main-control': {
         templateUrl: 'templates/control/main-control.html',
         controller: 'ControlCtrl'
+
       }
     }
   })
